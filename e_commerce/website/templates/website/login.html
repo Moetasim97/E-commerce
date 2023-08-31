@@ -1,0 +1,13 @@
+{% extends 'website/base.html' %}
+
+
+{% block 'title' %}
+Log In
+{% endblock %}
+{% block 'content' %}
+<h1>Welcome to the Log in page</h1>
+<form method="post">
+    {% csrf_token %}
+    {{loginForm}}
+</form>
+{% endblock %}

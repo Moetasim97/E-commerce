@@ -1,0 +1,13 @@
+{% extends 'website/base.html'%}
+
+{% block 'title' %}
+{% endblock%}
+
+{% block 'content' %}
+This is the signup page
+<form method="post">
+    {% csrf_token%}
+    {{form}}
+    <button type="submit">Enter</button>
+</form>
+{% endblock%}

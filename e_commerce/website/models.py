@@ -1,21 +1,20 @@
 from django.db import models
-
+from .validators import validate_password
+from django.contrib.auth import User
 # Create your models here.
 
 
-class User(models.Model):
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    # isActive = models.BooleanField()
-    # email = models.EmailField()
-    # fullName = models.CharField()
 
-    class Meta:
-        abstract = True
 
 class Customer(User):
     address = models.CharField(max_length=300)
     phone = models.CharField(max_length=15,help_text='Enter a valid Mobile Number: ')
+
+class Admin(User):
+    jobtitle=models.CharField
+    hiredate=models.DateField(auto_now=True)
+
+
 
 
 # class Order(models.Model):
