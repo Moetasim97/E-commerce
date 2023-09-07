@@ -49,5 +49,17 @@ ul a {
 
 
 
+.controller
+{
+    position: absolute;
+    bottom: 1%;
+}
 
 
+.card_img{
+    height: 200px;
+}
+img{
+    width: fit-content;
+    height: fit-content;
+}

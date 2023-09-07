@@ -1,13 +1,16 @@
 from django.shortcuts import render,redirect
 from .forms import UserForm,CustomerForm,AdminForm
 from django.contrib.auth import login
-
+from .models import *
 from django.db import transaction
 # Create your views here.
 
 def home(request):
+    
+    all_products=Product.objects.all()
+    
 
-    return render(request,'website/home.html')
+    return render(request,'website/home.html',{'products':all_products})
 
 
 @transaction.atomic
@@ -58,7 +61,7 @@ def registerAdmin(request):
 
 
 def shoppingCart(request):
-    
+
     return render(request,'website/shoppingCart.html')
 
 def login(request):
