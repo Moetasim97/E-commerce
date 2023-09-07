@@ -56,6 +56,11 @@ def registerAdmin(request):
     originalForm=UserForm()
     return render(request,'website/adminSignup.html',{'coreForm':originalForm,'adminForm':metaForm})
 
+
+def shoppingCart(request):
+    
+    return render(request,'website/shoppingCart.html')
+
 def login(request):
 
     if request.method=="POST":
