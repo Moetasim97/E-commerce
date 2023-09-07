@@ -6,6 +6,7 @@ Home
 {% endblock %}
 {% block 'content' %}
 <h1>Welcome to the home page</h1>
-<a href="{% url 'register' %}">Sign up</a>
+<a href="{% url 'registerCustomer' %}">Sign up as customer</a>
 <a href="{% url  'login' %}">Log in</a>
+<a href="{% url 'registerAdmin' %}">Sign up as admin</a>
 {% endblock %}

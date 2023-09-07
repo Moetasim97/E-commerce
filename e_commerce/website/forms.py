@@ -1,20 +1,49 @@
-from .models import Customer
+# from .models import Customer
 from django.forms import ModelForm
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import User
+from django.contrib.auth.models import User
+from .models import Customer,CustomAdmin
 
+
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields=['username','password','email','first_name','last_name']
+
+
+    def save(self,commit=True,*args,**kwargs):
+        m=super().save(commit=False)
+        m.password=make_password(self.cleaned_data.get('password'))
+        m.username=self.cleaned_data.get('username').lower()
+       
+       
+
+
+        if commit:
+            m.save()
+        return m
+
+    
+      
 
 class CustomerForm(ModelForm):
     class Meta:
-        model=User
-        fields=['username','password','phone','address']
-    # hashing the passwords of users    
-    def save(self,commit=True,*args,**kwargs):
-        PastModel=super().save(commit=False)
-        PastModel.username=self.cleaned_data.get('username').lower()
-        PastModel.password=make_password(self.cleaned_data.get('password'))
+        model = Customer
+        exclude=['user']
+        fields = ['phone','address']
 
-        if commit:
-            NewModel=PastModel
-            NewModel.save()
-            return NewModel
+   
+   
+        
+class AdminForm(ModelForm):
+    class Meta:
+        model = CustomAdmin
+        exclude=['user']
+        fields = ['jobtitle']
+
+        
+    # hashing the passwords of users    
+  
+        
+

@@ -1,0 +1,19 @@
+{% extends 'website/base.html'%}
+
+{% block 'title' %}
+Admin Sign up
+{% endblock%}
+
+{% block 'content' %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <form method="post">
+            {% csrf_token%}
+            {{coreForm.as_p}}
+            {{adminForm.as_p}}
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</div>
+
+{% endblock%}
