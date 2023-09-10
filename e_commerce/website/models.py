@@ -11,6 +11,10 @@ from django.contrib.auth.models import User
 class CustomAdmin(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     jobtitle = models.CharField(max_length=100,null=True)
+
+
+    def __str__(self):
+        return self.user.username
     
   
     

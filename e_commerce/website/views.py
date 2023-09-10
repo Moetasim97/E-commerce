@@ -13,6 +13,21 @@ def home(request):
     return render(request,'website/home.html',{'products':all_products})
 
 
+def renderMen(request):
+    menProducts=Product.objects.filter(category__name="Men")
+    return render(request,'website/womenPage.html',{'products':menProducts})
+
+def renderWomen(request):
+    womenProducts=Product.objects.filter(category__name="Women")
+    return render(request,'website/womenPage.html',{'products':womenProducts})
+
+
+def renderKids(request):
+    kidsProducts=Product.objects.filter(category__name="Kids")
+    return render(request,'website/kidsPage.html',{'products':kidsProducts})
+
+
+
 @transaction.atomic
 def registerCust(request):
     
@@ -23,6 +38,7 @@ def registerCust(request):
         if metaForm.is_valid() and originalForm.is_valid():
             userInstance = originalForm.save()
             customerInstance = metaForm.save(commit=False)
+            login(request,userInstance)
             customerInstance.user=userInstance
             print("Both the original user form and the customer form are valid")
             customerInstance.save()

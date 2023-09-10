@@ -7,5 +7,8 @@ urlpatterns= [
     path('registerAdmin',views.registerAdmin,name='registerAdmin'),
     path('thanks',views.thanks,name="thanks"),
     path('login',views.login,name='login'),
-    path('checkout',views.shoppingCart,name='shoppingCart')
+    path('checkout',views.shoppingCart,name='shoppingCart'),
+    path('men',views.renderMen,name='men'),
+    path('kids',views.renderKids,name='kids'),
+    path('women',views.renderWomen,name='women')
 ]
