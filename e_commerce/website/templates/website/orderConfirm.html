@@ -1,0 +1,12 @@
+{% extends 'website/base.html' %}
+
+
+
+{% block 'title' %}
+Confirmation
+{% endblock %}
+
+{% block 'content' %}
+<p>Your request has been submitted successfully, your order is being processed.</p>
+<div>Return to the <a href="{% url 'home' %}">Homepage</a></div>
+{% endblock %}

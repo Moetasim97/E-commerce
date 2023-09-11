@@ -2,11 +2,30 @@
 
 
 {% block 'title' %}
-Check out
+Checkout
 {% endblock %}
 
 {% block 'content' %}
 
-<p class="">Last review..</p>
-<div>Contents</div>
+<div class="w-100 d-flex  mt-5 justify-content-center">
+    <div class="shoppingCartContainer  ">
+        <table border="2" class="tableOfProducts">
+            <tr>
+                <th>Item No.</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Item Quantity</th>
+                <th>Total</th>
+            </tr>
+            
+            <!-- Add table rows here with actual data -->
+            </table>
+            <div class="d-flex justify-content-between mt-2 align-items-baseline">
+                <button class="btn btn-primary checkingOut">Checkout</button>
+                <a href="{%url 'home'%}">Continue Shopping</a>
+                <button class="cartDumper btn btn-danger">Refresh Cart</button>
+            </div>
+            
+    </div>
+</div>
 {% endblock %}

@@ -11,8 +11,13 @@ body
     height:100%;
     background-color: floralwhite;
     margin: 5px;
+
 }
 
+
+td{
+    text-align: center;
+}
 .customW{
     width: 800px;
 }
