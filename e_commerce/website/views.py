@@ -45,6 +45,7 @@ def registerCust(request):
             customerInstance = metaForm.save(commit=False)
             login(request,userInstance)
             customerInstance.user=userInstance
+            # This line is meant for testing purposes
             print("Both the original user form and the customer form are valid")
             customerInstance.save()
     
