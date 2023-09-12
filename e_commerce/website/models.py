@@ -21,7 +21,7 @@ class CustomAdmin(models.Model):
 class Customer(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     address = models.CharField(max_length=300,null=True)
-    phone = models.CharField(max_length=15,help_text='Enter a valid Mobile Number: ', null=True)
+    phone = models.CharField(max_length=15, null=True)
 
     def __str__(self):
         return self.user.username
