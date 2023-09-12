@@ -23,9 +23,14 @@ Checkout
             <div class="d-flex justify-content-between mt-2 align-items-baseline">
                 <button class="btn btn-primary checkingOut">Checkout</button>
                 <a href="{%url 'home'%}">Continue Shopping</a>
-                <button class="cartDumper btn btn-danger">Refresh Cart</button>
+                
             </div>
             
     </div>
 </div>
+<footer>
+    <div class="w-100 d-flex justify-content-center mt-5">
+        <a href="{% url 'customerOrders' %}">View Orders</a>
+    </div>
+</footer>
 {% endblock %}

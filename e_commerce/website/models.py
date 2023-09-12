@@ -57,11 +57,11 @@ class Category(models.Model):
         return self.name
     
 # Those are the choices that are going to be represented in the admin interface for determining order status.
-OPTIONS=(('First Option','Pending'),
-         ('Second Option','Approved'),
-         ('Third Option','Declined'),
-         ('Fourth Option','Shipped'),
-         ('Fifth Option','Delivered'))
+OPTIONS=(('Pending','Pending'),
+         ('Approved','Approved'),
+         ('Declined','Declined'),
+         ('Shipped','Shipped'),
+         ('Delivered','Delivered'))
 
 class Order(models.Model):
     creationDate = models.DateField(auto_now=True)

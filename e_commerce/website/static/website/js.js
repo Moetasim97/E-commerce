@@ -135,10 +135,6 @@ window.addEventListener("load",function(){
         })
 });
 
-$('.cartDumper').on('click',function(){
-    shoppingCart=[]
-    localStorage.removeItem('cartData')
-})
 
 
 $(".userLoggingOut").on('click',function(event){

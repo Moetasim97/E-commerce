@@ -1,0 +1,36 @@
+{% extends 'website/base.html' %}
+
+
+
+{% block 'title' %}
+Customer's Orders
+{% endblock %}
+
+{% block 'content' %}
+<div class="w-100 d-flex  mt-5 justify-content-center">
+    <div class="ordersContainer">
+        <table border="2" class="tableOfOrders">
+            <tr>
+                <th>Order No.</th>
+                <th>Order Total</th>
+                <th>Order Status</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.totalPrice}}</td>
+                <td>{{order.status}}</td>
+            </tr>
+            {% endfor %}
+            
+            
+            </table>
+            <div class="d-flex justify-content-center mt-2 align-items-baseline">
+               
+                <a href="{%url 'home'%}">Continue Shopping</a>
+                
+            </div>
+            
+    </div>
+</div>
+{% endblock %}

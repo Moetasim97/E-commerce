@@ -19,6 +19,13 @@
 <body>
  
     <nav class="container">
+      <div class="d-flex justify-content-center">
+        <form class="form-inline form-inline d-none d-sm-none d-md-block" method="get" action="{% url 'filteredProducts'%}">
+          <input aria-label="Search" class="form-control" placeholder="Looking for something?" type="search" name="name"> 
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+      
       <div class="row justify-content-around pt-3">
         <div class="h3">Shoe Hoarder</div>
         <div class="customW">

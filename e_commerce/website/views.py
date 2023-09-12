@@ -1,7 +1,7 @@
 import json
 from django.contrib.auth import authenticate,login
 from django.shortcuts import render,redirect
-from .forms import UserForm,CustomerForm,AdminForm,LoginForm
+from .forms import UserForm,CustomerForm,AdminForm,LoginForm,FilterForm
 from .models import *
 from django.contrib import messages
 from django.db import transaction
@@ -20,7 +20,7 @@ def home(request):
 
 def renderMen(request):
     menProducts=Product.objects.filter(category__name="Men")
-    return render(request,'website/womenPage.html',{'products':menProducts})
+    return render(request,'website/menPage.html',{'products':menProducts})
 
 def renderWomen(request):
     womenProducts=Product.objects.filter(category__name="Women")
@@ -193,3 +193,39 @@ def loginView(request):
 
 def thanks(request):
     return render(request,'website/thanks.html')
+
+def viewOrders(request):
+    orders=Order.objects.filter(customer__user__username=request.user.username)
+    orders=list(orders)
+    return render(request,'website/orders.html',{'orders':orders})
+
+
+def filterView(request):
+    form=FilterForm(request.GET)
+
+    if form.is_valid():
+        name=form.cleaned_data['name']
+        category=form.cleaned_data['category']
+        order=form.cleaned_data['order_by']
+        availableStock=form.cleaned_data['only_in_stock']
+
+        products = Product.objects.filter(nameEn__icontains=name)
+        if category:
+            products = products.filter(category=category)
+
+        if availableStock:
+            products = products.filter(stockQuantity__gt=0)
+
+        if order == "NAME":
+            products = products.order_by('nameEn')
+        else:
+            products = products.order_by('unitPrice')
+            if order == 'PRICE_DESC':
+                products = products.reverse()
+
+    else:
+        # Incorrect form submission? Just get everything.
+        products = Product.objects.all()
+
+
+    return render(request,'website/filteredOrders.html',{'form':form,'products':products})

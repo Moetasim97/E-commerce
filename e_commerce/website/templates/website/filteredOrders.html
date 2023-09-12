@@ -1,0 +1,14 @@
+{% extends 'website/base.html' %}
+
+
+{% block 'title' %}
+Home
+{% endblock %}
+{% block 'content' %}
+<form method="get">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit" class="btn btn-success">Look Up</button>
+</form>
+{% include "website/reusable.html" %}
+{% endblock %}
