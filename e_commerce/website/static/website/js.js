@@ -116,7 +116,6 @@ window.addEventListener("load",function(){
         }
 
         $(".checkingOut").on('click',function(){
-            
             $.ajax({
                 url: 'http://127.0.0.1:8000/checkout',
                 method: 'POST',
@@ -125,6 +124,9 @@ window.addEventListener("load",function(){
                 success: function (response,message) {
                   // Handle the response from the Django backend
                   console.log(message);
+                  shoppingCart=[]
+                  localStorage.removeItem('cartData')
+                  location.reload()
                 },
                 error: function (error) {
                   console.error('Error:', error);
@@ -136,6 +138,15 @@ window.addEventListener("load",function(){
 $('.cartDumper').on('click',function(){
     shoppingCart=[]
     localStorage.removeItem('cartData')
+})
+
+
+$(".userLoggingOut").on('click',function(event){
+
+    event.preventDefault()
+    localStorage.removeItem('cartData')
+    window.location.href=event.target.href
+
 })
 
 

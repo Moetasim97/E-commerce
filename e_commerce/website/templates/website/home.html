@@ -7,10 +7,19 @@ Home
 {% block 'content' %}
 {% include "website/reusable.html" %}
 
+
+<div class="d-flex w-100 justify-content-around mt-5">
 <div class=" d-flex justify-content-center controller">
 <a href="{% url 'registerCustomer' %}" class="mx-2">Sign up as a Customer</a>
 <a href="{% url  'login' %}" class="mx-2">Log in</a>
 <a href="{% url 'registerAdmin' %}" class=" mx-2">Sign up as an Admin</a>
-<a href="{% url 'logout' %}">Log out</a>
+<a href="{% url 'logout' %}" class="userLoggingOut">Log out</a>
+
 </div>
+<!-- <div class="d-flex justify-content-center pivot">
+    <div>You are now logged in as a customer</div>
+   
+  </div> -->
+</div>
+
 {% endblock %}

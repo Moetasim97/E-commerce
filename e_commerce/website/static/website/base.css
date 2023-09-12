@@ -63,12 +63,17 @@ a svg{
 
 
 
-.controller
+/* .controller
 {
     position: absolute;
     bottom: 1%;
-    width: 100%;
+    width: fit-content;
 }
+
+.pivot{
+    position: absolute;
+    bottom: 1%;
+} */
 
 
 .card_img{
